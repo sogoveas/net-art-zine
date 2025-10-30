@@ -1,7 +1,9 @@
-body{
-	margin: auto;
-	width: 60%;
-	background-color: black;
-	color: antiquewhite;
-	font-size: 20px;
+body {
+    background-color: black;
+    color: antiquewhite;
+    font-family: 'Courier New', monospace;
+    margin: 0 auto;          
+    padding: 2rem;           
+    max-width: 800px;        
+    display: block;         
 }
