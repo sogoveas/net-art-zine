@@ -1,9 +1,168 @@
-body {
+body { 
     background-color: black;
-    color: antiquewhite;
-    font-family: 'Courier New', monospace;
-    margin: 0 auto;          
-    padding: 2rem;           
-    max-width: 800px;        
-    display: block;         
+    margin: 0;
+    padding: 0;
 }
+
+h1 {
+    color: white;
+    text-align: center;
+    font-family: 'luckiest-guy';
+    font-size: 23px;
+}
+
+.images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.images img {
+    width: 100%;
+    max-width: 400px; 
+    height: auto;
+    border-radius: 8px;
+}
+
+
+
+.flash-small {
+    height: 150px !important; 
+    width: 150px !important; 
+    margin-top: 340px;
+    margin-left: 70px;
+}
+
+
+.hand {
+    position: absolute;
+    left: 50px;  
+    top: 20px;   
+    transform: rotate(270deg);
+    height: 150px;
+}
+
+
+.arrow {
+    position: fixed;
+    bottom: 20px;
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 13;
+}
+
+.back-arrow {
+    left: 20px;
+    transform: rotate(180deg);   
+}
+
+.next-arrow {
+    right: 20px;
+}
+
+.arrow:hover {
+    transform: scale(1.2); 
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.back-arrow:hover {
+    transform: scale(1.2) rotate(180deg);
+}
+
+.mirror-image img {
+    width: 90vw;        
+    max-width: 800px;   
+    height: auto;      
+    display: block;
+    margin: 2rem auto;  
+}
+
+
+.overlay-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/golden-age/liquid-organiza.jpeg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.sari-border {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.sari-border img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; 
+    display: block;
+}
+
+
+@font-face {
+    font-family: 'luckiest-guy';
+    src: url('fonts/LuckiestGuy-Regular.ttf');
+}
+
+
+@media only screen and (min-width: 600px) {
+	body {
+		margin: auto;
+        background-color: black;
+		width: 100%;
+	}
+	
+	.images {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr); 
+		gap: 1rem;
+		padding: 2rem;
+	}
+
+    .images img {
+        width: 100%;
+        max-width: none;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .mirror-image {
+        position: relative;
+        width: 100vw;
+        height: 100vh; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; 
+    }
+
+    .mirror-image img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain; 
+        display: block;
+    }
+
+}
+
