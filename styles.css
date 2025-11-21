@@ -7,9 +7,55 @@ body {
 h1 {
     color: white;
     text-align: center;
-    font-family: 'luckiest-guy';
-    font-size: 23px;
+    font-family: 'apple-garamond';
+    font-size: 16px;
+    padding-left: 13px;
+    padding-right: 13px;
 }
+
+.flash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, 
+        rgba(255,255,255,1) 0%, 
+        rgba(255,255,255,0.9) 15%, 
+        rgba(255,255,255,0.5) 35%, 
+        rgba(255,255,255,0.15) 60%, 
+        rgba(255,255,255,0) 100%
+    );
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+    animation: circularFlash 1.2s ease-out forwards;
+    transform: scale(0.4);  /* starts small */
+}
+
+@keyframes circularFlash {
+    0% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+    5% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    20% {
+        opacity: 0.9;
+        transform: scale(1.15);
+    }
+    50% {
+        opacity: 0.25;
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
 
 .images {
     display: grid;
@@ -28,21 +74,16 @@ h1 {
 }
 
 
-
-.flash-small {
-    height: 150px !important; 
-    width: 150px !important; 
-    margin-top: 340px;
-    margin-left: 70px;
+.camera {
+    display: grid;         
+    place-items: center;   
+    height: 100vh;         
 }
 
-
-.hand {
-    position: absolute;
-    left: 50px;  
-    top: 20px;   
-    transform: rotate(270deg);
-    height: 150px;
+.camera img {
+    width: 250px;            
+    height: auto;         
+    max-width: 100%;       
 }
 
 
@@ -63,23 +104,28 @@ h1 {
     z-index: 13;
 }
 
+
 .back-arrow {
     left: 20px;
     transform: rotate(180deg);   
 }
 
+
 .next-arrow {
     right: 20px;
 }
+
 
 .arrow:hover {
     transform: scale(1.2); 
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+
 .back-arrow:hover {
     transform: scale(1.2) rotate(180deg);
 }
+
 
 .mirror-image img {
     width: 90vw;        
@@ -119,8 +165,8 @@ h1 {
 
 
 @font-face {
-    font-family: 'luckiest-guy';
-    src: url('fonts/LuckiestGuy-Regular.ttf');
+    font-family: 'apple-garamond';
+    src: url('fonts/AppleGaramond.ttf');
 }
 
 
@@ -163,6 +209,5 @@ h1 {
         object-fit: contain; 
         display: block;
     }
-
 }
 

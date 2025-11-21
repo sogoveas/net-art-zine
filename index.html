@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,13 +6,30 @@
     <title>Home</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
+
+
 <body>
-    <div class="images">
-        <img src="images/home-page/camera.png" alt="Camera illustration" class="hand" style="transform: rotate(270deg);">
-        <img src="images/home-page/flash.jpg" alt="Camera flash" width="100" height="150" class="flash-small" style="transform: rotate(270deg);">
+    <audio id="camera-sound" src="audio/camera-sound-effect.mp3" preload="auto"></audio>
+    <script>
+        window.addEventListener('load', function() {
+            var audio = document.getElementById('camera-sound');
+            audio.play().catch(function(e){
+                console.log('Audio playback failed:', e);
+            });
+        });
+    </script>
+
+    <div class="flash-overlay"></div>
+
+    <div class="camera">  
+        <img src="images/home-page/camera2.png" alt="">
     </div>
-
+    
     <a href="eyes.html" class="arrow next-arrow">➤</a>
-
+    
+    
+    
 </body>
 </html>
+
