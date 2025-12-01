@@ -2,15 +2,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mirror</title>
+    <title>Mirror Reveal</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #fff;
+            font-family: sans-serif;
+        }
+
+        .mirror-image img {
+            max-width: 90%;
+            transition: filter 0.5s ease, opacity 0.5s ease;
+        }
+
+        /* Start with the image “blurred” */
+        .blurred {
+            filter: blur(15px) grayscale(50%);
+        }
+
+        .arrow {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 2rem;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
+
     <div class="mirror-image">
-        <img src="images/end-page/mirror-art272 (1).jpg" alt="Mirror Image">
+        <img src="images/end-page/mirror-art272 (1).jpg" alt="Mirror Image" id="mirror-img" class="blurred">
     </div>
 
     <a href="drag-queen.html" class="arrow back-arrow">➤</a>
+
+    <script>
+        if (window.DeviceMotionEvent) {
+            let shakeThreshold = 15; // sensitivity
+            let lastX, lastY, lastZ;
+            let lastTime = new Date();
+            let revealed = false;
+
+            window.addEventListener('devicemotion', function(event) {
+                if (revealed) return; // only trigger once
+
+                let acc = event.accelerationIncludingGravity;
+                let currentTime = new Date();
+                let timeDifference = currentTime - lastTime;
+
+                if (timeDifference > 100) {
+                    let deltaX = 0, deltaY = 0, deltaZ = 0;
+
+                    if (lastX !== undefined) {
+                        deltaX = Math.abs(acc.x - lastX);
+                        deltaY = Math.abs(acc.y - lastY);
+                        deltaZ = Math.abs(acc.z - lastZ);
+                    }
+
+                    if ((deltaX + deltaY + deltaZ) > shakeThreshold) {
+                        let img = document.getElementById('mirror-img');
+                        img.classList.remove('blurred'); // reveal the image
+                        revealed = true;
+                    }
+
+                    lastX = acc.x;
+                    lastY = acc.y;
+                    lastZ = acc.z;
+                    lastTime = currentTime;
+                }
+            }, false);
+        }
+    </script>
 
 </body>
 </html>
