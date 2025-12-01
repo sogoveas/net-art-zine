@@ -17,12 +17,10 @@
         }
 
         .mirror-image img {
-            max-width: 90%;
+            max-width: 1000%;
             transition: filter 0.5s ease, opacity 0.5s ease;
             cursor: pointer;
         }
-
-        /* Start blurred/hidden */
         .blurred {
             filter: blur(15px) grayscale(50%);
         }
@@ -37,8 +35,8 @@
         }
     </style>
 </head>
-<body>
 
+<body>
     <div class="mirror-image">
         <img src="images/end-page/mirror-art272 (1).jpg" alt="Mirror Image" id="mirror-img" class="blurred">
     </div>
@@ -49,7 +47,7 @@
         const img = document.getElementById('mirror-img');
 
         img.addEventListener('click', () => {
-            img.classList.remove('blurred'); // reveal the image
+            img.classList.remove('blurred');
         });
     </script>
 
