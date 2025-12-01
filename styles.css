@@ -6,12 +6,12 @@ body {
 
 h1 {
     color: white;
-    text-align: center;
     font-family: 'apple-garamond';
     font-size: 16px;
-    padding-left: 13px;
-    padding-right: 13px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
+
 
 .flash-overlay {
     position: fixed;
@@ -30,7 +30,7 @@ h1 {
     z-index: 9999;
     pointer-events: none;
     animation: circularFlash 1.2s ease-out forwards;
-    transform: scale(0.4);  /* starts small */
+    transform: scale(0.4);  
 }
 
 @keyframes circularFlash {
@@ -66,6 +66,7 @@ h1 {
     padding: 1rem;
 }
 
+
 .images img {
     width: 100%;
     max-width: 400px; 
@@ -79,6 +80,7 @@ h1 {
     place-items: center;   
     height: 100vh;         
 }
+
 
 .camera img {
     width: 250px;            
@@ -214,4 +216,3 @@ h1 {
         display: block;
     }
 }
-

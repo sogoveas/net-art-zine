@@ -15,17 +15,9 @@
             transition: filter 0.5s ease, opacity 0.5s ease;
             cursor: pointer;
         }
+
         .blurred {
             filter: blur(15px) grayscale(50%);
-        }
-
-        .arrow {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            font-size: 2rem;
-            text-decoration: none;
-            color: white;
         }
     </style>
 </head>
@@ -44,6 +36,5 @@
             img.classList.remove('blurred');
         });
     </script>
-
 </body>
 </html>
