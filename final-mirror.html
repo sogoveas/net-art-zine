@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirror Reveal</title>
+    <title>Mirror Tap Reveal</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -19,9 +19,10 @@
         .mirror-image img {
             max-width: 90%;
             transition: filter 0.5s ease, opacity 0.5s ease;
+            cursor: pointer;
         }
 
-        /* Start with the image “blurred” */
+        /* Start blurred/hidden */
         .blurred {
             filter: blur(15px) grayscale(50%);
         }
@@ -45,41 +46,11 @@
     <a href="drag-queen.html" class="arrow back-arrow">➤</a>
 
     <script>
-        if (window.DeviceMotionEvent) {
-            let shakeThreshold = 15; // sensitivity
-            let lastX, lastY, lastZ;
-            let lastTime = new Date();
-            let revealed = false;
+        const img = document.getElementById('mirror-img');
 
-            window.addEventListener('devicemotion', function(event) {
-                if (revealed) return; // only trigger once
-
-                let acc = event.accelerationIncludingGravity;
-                let currentTime = new Date();
-                let timeDifference = currentTime - lastTime;
-
-                if (timeDifference > 100) {
-                    let deltaX = 0, deltaY = 0, deltaZ = 0;
-
-                    if (lastX !== undefined) {
-                        deltaX = Math.abs(acc.x - lastX);
-                        deltaY = Math.abs(acc.y - lastY);
-                        deltaZ = Math.abs(acc.z - lastZ);
-                    }
-
-                    if ((deltaX + deltaY + deltaZ) > shakeThreshold) {
-                        let img = document.getElementById('mirror-img');
-                        img.classList.remove('blurred'); // reveal the image
-                        revealed = true;
-                    }
-
-                    lastX = acc.x;
-                    lastY = acc.y;
-                    lastZ = acc.z;
-                    lastTime = currentTime;
-                }
-            }, false);
-        }
+        img.addEventListener('click', () => {
+            img.classList.remove('blurred'); // reveal the image
+        });
     </script>
 
 </body>
